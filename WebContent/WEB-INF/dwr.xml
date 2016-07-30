@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://www.getahead.ltd.uk/dwr/dwr20.dtd">
+<dwr>
+	<allow>
+		<create creator="new" javascript="mms">
+			<param name="class" value="com.pxl.pkb.struts.actions.AJAXAction" />
+		</create>
+		 <convert converter="bean" match="com.pxl.pkb.vo.ppm_workdetail"> 
+         <param name="include" value="workDetailID,taskID,userID,seqNum,detailContent,workAddress" /> 
+         </convert>
+          <convert converter="bean" match="com.pxl.pkb.vo.ppm_output"> 
+         <param name="include" value="outputID,taskID,seqNum,outputName" /> 
+         </convert>
+           <convert converter="bean" match="com.pxl.pkb.extendvo.ppm_problemon"> 
+         <param name="include" value="problemID,taskID,problemCode,description,plan,charger,useroper,planTime,problemStatus,chargerName,useroperid" /> 
+         </convert>
+	</allow>
+</dwr>

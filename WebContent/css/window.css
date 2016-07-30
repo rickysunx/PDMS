@@ -1,0 +1,27 @@
+.window {
+    background-color: #D0DEF0;
+    width: 250px;
+    /*padding: 2px;*/
+    margin: 5px;
+	/*控制窗口绝对定位*/
+    position: absolute;
+    display: none;
+}
+.content {
+    height: 150px;
+    background-color: white;
+    border: 2px solid #D0DEF0;
+    padding: 2px;
+	/*控制区域内容超过指定高度和宽度时显示滚动条*/
+    overflow: auto;
+}
+.title {
+    padding: 4px;
+    font-size: 14px;
+}
+.title img {
+    width: 14px;
+    height: 14px;
+    float: right;
+    cursor: pointer;
+}

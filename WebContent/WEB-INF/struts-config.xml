@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+    <form-beans>
+    	<form-bean name="LoginForm" type="com.pxl.pkb.struts.forms.LoginForm"></form-bean>
+    	<form-bean name="UploadForm" type="com.pxl.pkb.struts.forms.UploadForm"></form-bean>
+    	<form-bean name="QstAddForm" type="com.pxl.pkb.struts.forms.QstAddForm"></form-bean>
+    	<form-bean name="QstUpdateForm" type="com.pxl.pkb.struts.forms.QstUpdateForm"></form-bean>
+    	<form-bean name="AnswerAddForm" type="com.pxl.pkb.struts.forms.AnswerAddForm"></form-bean>
+    	<form-bean name="AnswerUpdateForm" type="com.pxl.pkb.struts.forms.AnswerUpdateForm"></form-bean>
+    	<form-bean name="CommentAddForm" type="com.pxl.pkb.struts.forms.CommentAddForm"></form-bean>
+    	<form-bean name="QstAdditionForm" type="com.pxl.pkb.struts.forms.QstAdditionForm"></form-bean>
+    	<form-bean name="DocAddForm" type="com.pxl.pkb.struts.forms.DocAddForm"></form-bean>
+    	<form-bean name="DocEditForm" type="com.pxl.pkb.struts.forms.DocEditForm"></form-bean>
+    	<form-bean name="DocUpdateForm" type="com.pxl.pkb.struts.forms.DocUpdateForm"></form-bean>
+    	<form-bean name="UserRegForm" type="com.pxl.pkb.struts.forms.UserRegForm"></form-bean>
+    	<form-bean name="UserManageForm" type="com.pxl.pkb.struts.forms.UserManageForm"></form-bean>
+    	<form-bean name="SearchForm" type="com.pxl.pkb.struts.forms.SearchForm"></form-bean>
+    	<form-bean name="AskCateForm" type="com.pxl.pkb.struts.forms.AskCateForm"></form-bean>
+    	<form-bean name="DocCateForm" type="com.pxl.pkb.struts.forms.DocCateForm"></form-bean>
+    	<form-bean name="PasswordResetForm" type="com.pxl.pkb.struts.forms.PasswordResetForm"></form-bean>
+    	<form-bean name="NoticeForm" type="com.pxl.pkb.struts.forms.NoticeForm"></form-bean>
+    	<!-- 新增的 -->
+    	<form-bean name="PPMProjectForm" type="com.pxl.pkb.struts.forms.PPMProjectForm" ></form-bean>
+    	<form-bean name="PPMMemberForm" type="com.pxl.pkb.struts.forms.PPMMemberForm" ></form-bean>
+    	<form-bean name="PPMTaskForm" type="com.pxl.pkb.struts.forms.PPMTaskForm" ></form-bean>
+    </form-beans>
+    
+    <global-exceptions>
+    </global-exceptions>
+
+    <global-forwards>
+    </global-forwards>
+
+    <action-mappings>
+    	<action path="/login" name="LoginForm" scope="request" type="com.pxl.pkb.struts.actions.LoginAction" validate="false">
+    		<forward name="success" path="/client_setup.jsp" redirect="true"></forward>
+    		<forward name="failed" path="/login.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/logout" scope="request" type="com.pxl.pkb.struts.actions.LogoutAction" validate="false">
+    		<forward name="success" path="/login.jsp" redirect="true"></forward>
+    	</action>
+    	<action path="/upload" name="UploadForm" scope="request" type="com.pxl.pkb.struts.actions.UploadAction" validate="false">
+    		<forward name="success" path="/upload.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/QstAdd" name="QstAddForm" scope="request" type="com.pxl.pkb.struts.actions.QstAddAction" validate="false">
+    		<forward name="success" path="/ask_list.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/QstUpdate" name="QstUpdateForm" scope="request" type="com.pxl.pkb.struts.actions.QstUpdateAction" validate="false">
+    		<forward name="success" path="/ask_qst_view.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/QstDelete" scope="request" type="com.pxl.pkb.struts.actions.QstDeleteAction" validate="false">
+    		<forward name="success" path="/ask_qst_view.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/QstClose" scope="request" type="com.pxl.pkb.struts.actions.QstCloseAction" validate="false">
+    		<forward name="success" path="/ask_qst_view.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/QstAdditionAdd" name="QstAdditionForm" scope="request" type="com.pxl.pkb.struts.actions.QstAddtionAddAction" validate="false">
+    		<forward name="success" path="/ask_qst_view.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/AnswerAdd" name="AnswerAddForm" scope="request" type="com.pxl.pkb.struts.actions.AnswerAddAction" validate="false">
+    		<forward name="success" path="/ask_qst_view.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/CommentAdd" name="CommentAddForm" scope="request" type="com.pxl.pkb.struts.actions.CommentAddAction" validate="false">
+    	</action>
+    	<action path="/AnswerUpdate" name="AnswerUpdateForm" scope="request" type="com.pxl.pkb.struts.actions.AnswerUpdateAction" validate="false">
+    		<forward name="success" path="/ask_qst_view.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/AnswerDelete" scope="request" type="com.pxl.pkb.struts.actions.AnswerDeleteAction" validate="false">
+    		<forward name="success" path="/ask_qst_view.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/SetBestAnswer" scope="request" type="com.pxl.pkb.struts.actions.SetBestAnswerAction" validate="false">
+    		<forward name="success" path="/ask_qst_view.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/DocAdd" name="DocAddForm" scope="request" type="com.pxl.pkb.struts.actions.DocAddAction" validate="false">
+    		<forward name="success" path="/doc_list.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/DocEdit" name="DocEditForm" scope="request" type="com.pxl.pkb.struts.actions.DocEditAction" validate="false">
+    		<forward name="success" path="/doc_detail.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/DocDelete" scope="request" type="com.pxl.pkb.struts.actions.DocDeleteAction" validate="false">
+    		<forward name="success" path="/doc_list.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/DocUpdate" name="DocUpdateForm" scope="request" type="com.pxl.pkb.struts.actions.DocUpdateAction" validate="false">
+    		<forward name="success" path="/doc_detail.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/DocVerDelete" scope="request" type="com.pxl.pkb.struts.actions.DocVerDeleteAction" validate="false">
+    		<forward name="success" path="/doc_detail.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/DocDownload" scope="request" type="com.pxl.pkb.struts.actions.DocDownloadAction" validate="false">
+    		<forward name="success" path="/doc_detail.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/UserReg" name="UserRegForm" scope="request" type="com.pxl.pkb.struts.actions.UserRegAction" validate="false">
+    		<forward name="success" path="/reg_finished.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/PPMTaskSave" scope="request" type="com.pxl.ppm.actions.TaskSaveAction" validate="false">
+    		<forward name="success" path="/ppm_task_response.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/UserManage" name="UserManageForm" scope="request" type="com.pxl.pkb.struts.actions.UserManageAction" validate="false">
+    		<forward name="success" path="/user_manage.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/Search" name="SearchForm" scope="request" type="com.pxl.pkb.struts.actions.SearchAction" validate="false">
+    		<forward name="success" path="/search.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/AskCate" name="AskCateForm" scope="request" type="com.pxl.pkb.struts.actions.AskCateAction" validate="false">
+    		<forward name="success" path="/admin_ask_cate.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/InitDocCate" scope="request" type="com.pxl.pkb.struts.actions.InitDocCateAction" validate="false">
+    		<forward name="success" path="/admin_doc_cate_info.jsp?method=update" redirect="false"></forward>
+    	</action>
+    	<action path="/InitAskCate" scope="request" type="com.pxl.pkb.struts.actions.InitAskCateAction" validate="false">
+    		<forward name="success" path="/admin_ask_cate_info.jsp?method=update" redirect="false"></forward>
+    	</action>
+    	<action path="/DocCate" name="DocCateForm" scope="request" type="com.pxl.pkb.struts.actions.DocCateAction" validate="false">
+    		<forward name="success" path="/admin_doc_cate.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/DocCateDelete" scope="request" type="com.pxl.pkb.struts.actions.DocCateDeleteAction" validate="false">
+    		<forward name="success" path="/admin_doc_cate.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/AskCateDelete" scope="request" type="com.pxl.pkb.struts.actions.AskCateDeleteAction" validate="false">
+    		<forward name="success" path="/admin_ask_cate.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/UserDelete" scope="request" type="com.pxl.pkb.struts.actions.UserDeleteAction" validate="false">
+    		<forward name="success" path="/admin_user_manager.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/PasswordReset" name="PasswordResetForm" scope="request" type="com.pxl.pkb.struts.actions.PasswordResetAction" validate="false">
+    		<forward name="success" path="/admin_user_manager.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/NoticeDelete" scope="request" type="com.pxl.pkb.struts.actions.NoticeDeteleAction" validate="false">
+    		<forward name="success" path="/admin_notice_cate.jsp?noticeType=&amp;noticeCate=" redirect="false"></forward>
+    	</action>
+    	<action path="/NoticeAdd" name="NoticeForm" scope="request" type="com.pxl.pkb.struts.actions.NoticeAddAction">
+    		<forward name="success" path="/admin_notice_cate.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/InitEdit" name="NoticeForm" scope="request" type="com.pxl.pkb.struts.actions.NoticeInitEdit">
+    		<forward name="success" path="/admin_notice_edit.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/NoticeEidt" name="NoticeForm" scope="request" type="com.pxl.pkb.struts.actions.NoticeEidtAction">
+    		<forward name="success" path="/admin_notice_cate.jsp?noticeType=&amp;noticeCate=" redirect="true"></forward>
+    	</action>
+    	<action path="/NotifyGet" scope="request" validate="true" type="com.pxl.pkb.struts.actions.NotifyGetAction">
+    		<forward name="success" path="/notify_get.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/OperaNoteDelete" scope="request" type="com.pxl.pkb.struts.actions.OperaNoteDelateAction">
+    		<forward name="success" path="/admin_operanote_cate.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/InitBulkUpload" scope="request" type="com.pxl.pkb.struts.actions.InitBulkUploadAction">
+    		<forward name="success" path="/admin_bulkUpload.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/BulkUpload" scope="request" type="com.pxl.pkb.struts.actions.BulkUploadAction">
+    		<forward name="success" path="/InitBulkUpload.do" redirect="false"/>
+    	</action>
+    	<action path="/ReSendMail" scope="request" type="com.pxl.pkb.struts.actions.ReSentMail">
+    		<forward name="success" path="/admin_mailsendfailed.jsp" redirect="false"/>
+    	</action>
+    	<!--新修改的flashupload上传文件 -->
+    	<action path="/flashupload"  scope="request" type="com.pxl.pkb.struts.actions.FlashUploadAction" validate="false">
+    		<forward name="success" path="/upload.jsp" redirect="false"></forward>
+    	</action>
+    	<action path="/check" scope="request" type="com.jquery.test.Check" >
+        </action>
+        <!-- 新增 -->
+        <action path="/OpenJsp" scope="request" type="com.pxl.pkb.struts.actions.OpenJSPAction" validate="false">
+        <forward name="openProject" path="/ppm_project_add.jsp" redirect="false" ></forward>
+        <forward name="openMember" path="/ppm_member_add.jsp" redirect="false" ></forward>
+        </action>
+        <action path="/PPMproject" scope="request" name="PPMProjectForm" type="com.pxl.pkb.struts.actions.PPMProjectAction" validate="false">
+        <forward name="errors" path="/errmsg.jsp" redirect="false"  ></forward>
+        <forward name="select" path="/ppm_project_detail.jsp" redirect="false" ></forward>
+        <forward name="modify" path="/ppm_project_edit.jsp" redirect="false" ></forward>
+        <forward name="list" path="/ppm_project_list.jsp" redirect="false" ></forward>
+        <forward name="chose" path="/ppm_project_chose.jsp" redirect="false" ></forward>
+        </action>
+        <action path="/PPMMember" scope="request" name="PPMMemberForm" type="com.pxl.pkb.struts.actions.PPMMemberAction" validate="false">
+        <forward name="errors" path="/errmsg.jsp" redirect="false"  ></forward>
+        <forward name="select" path="/ppm_member_detail.jsp" redirect="false" ></forward>
+        <forward name="modify" path="/ppm_member_edit.jsp" redirect="false" ></forward>
+        <forward name="list" path="/ppm_member_list.jsp" redirect="false" ></forward>
+        <forward name="chose" path="/ppm_member_choseuser.jsp" redirect="false" ></forward>
+		<forward name="worklogchose" path="/ppm_user_chose.jsp" redirect="false" ></forward>
+		</action>
+        <action path="/PPMTask" scope="request" name="PPMTaskForm" type="com.pxl.pkb.struts.actions.PPMTaskAction" validate="false">
+        <forward name="list" path="/ppm_worklogs_list.jsp" redirect="false" ></forward>
+        <forward name="choseCharge" path="/ppm_choseCharges.jsp" ></forward>
+        <forward name="choseOperuser" path="/ppm_choseOper.jsp" ></forward>
+        <forward name="querylist" path="/ppm_worklogs_query.jsp" ></forward>
+        <forward name="queryworklog" path="/ppm_queryworklogs_list.jsp" ></forward>
+        </action>
+        <action path="/AJAXAction" scope="request" type="com.pxl.pkb.struts.actions.AJAXAction" validate="false">
+        </action>
+    </action-mappings>
+    
+    <controller maxFileSize="1000M" inputForward="true"/>
+
+</struts-config>
+
